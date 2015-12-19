@@ -19,3 +19,4 @@
 		 * jeśli wartość koszyka przekroczy 200zł powinien on powyżej tej kwoty
 		 * udzielać rabatu rzędu 10%, ale tylko od nadwyżki
 		 */
+//
