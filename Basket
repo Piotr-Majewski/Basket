@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Basket {
+
+	public static void main(String[] args) {
+		
+		List<Product> productList = new ArrayList<>();
+		
+		productList.add(new Product("mleko", 2.8));
+		productList.add(new Product("masło", 3.5));
+		productList.add(new Product("chleb", 2.7));
+		
+		
+		
+		for (Product Product : productList){
+		System.out.println(Product.getName());
+		}
+	}
+}
