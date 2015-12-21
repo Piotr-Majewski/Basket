@@ -10,15 +10,15 @@ public class Basket {
 
 		// Produkty dodane do koszyka
 
-		productList.add(new Product("mleko", 2.8));
-		productList.add(new Product("masło", 3.5));
-		productList.add(new Product("chleb", 100.7));
-		productList.add(new Product("ogórek", 2));
-		productList.add(new Product("kawior", 100));
-		productList.add(new Product("szynka", 6.24));
-		productList.add(new Product("paprykarz", 1.99));
-		productList.add(new Product("olej", 5.7));
-		productList.add(new Product("makaron", 4.6));
+		productList.add(new Product(productList.size(), "mleko", 2.8));
+		productList.add(new Product(productList.size(), "masło", 3.5));
+		productList.add(new Product(productList.size(), "chleb", 100.7));
+		productList.add(new Product(productList.size(), "ogórek", 2));
+		productList.add(new Product(productList.size(), "kawior", 100));
+		productList.add(new Product(productList.size(), "szynka", 6.24));
+		productList.add(new Product(productList.size(), "paprykarz", 1.99));
+		productList.add(new Product(productList.size(), "olej", 5.7));
+		productList.add(new Product(productList.size(), "makaron", 4.6));
 
 		// Operacje na produktach
 		double total = 0;
@@ -29,7 +29,7 @@ public class Basket {
 		for (Product Product : productList) {
 			total = total + Product.getPrice();
 			counter = counter + 1;
-			System.out.println(Product.getName() + " " + Product.getPrice());
+			System.out.println(Product.getIndex() +" "+ Product.getName() + " " + Product.getPrice());
 		}
 			if (counter == productList.size() && total < 200) {
 				System.out.println();
