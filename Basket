@@ -4,17 +4,39 @@ import java.util.List;
 public class Basket {
 
 	public static void main(String[] args) {
-		
+
+
+// Lista produktów		
 		List<Product> productList = new ArrayList<>();
+
+// Produkty dodanw do koszyka		
 		
 		productList.add(new Product("mleko", 2.8));
 		productList.add(new Product("masło", 3.5));
 		productList.add(new Product("chleb", 2.7));
+		productList.add(new Product("mleko", 2.8));
+		productList.add(new Product("masło", 3.5));
+		productList.add(new Product("chleb", 2.7));
+		productList.add(new Product("chleb", 2.7));
+		productList.add(new Product("olej", 2.7));
+		productList.add(new Product("jajka", 0.6));
 		
 		
-		
-		for (Product Product : productList){
-		System.out.println(Product.getName());
+	
+// Operacje na produktach		
+		double total = 0;
+		int counter = 0;
+
+		System.out.println();
+
+		for (Product Product : productList) {
+			total = total += Product.getPrice();
+			counter = counter + 1;
+			System.out.println(Product.getName() + " " + Product.getPrice());
+			if (counter == productList.size()) {
+				System.out.println();
+				System.out.println("Kwota całkowita wynosi" + " " + total);
+			}
 		}
 	}
 }
