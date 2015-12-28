@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Basket {
 
-	public static void main(String[] args) {
+	public Basket (String[] args) {
 
 		// Lista produktów
 		List<Product> productList = new ArrayList<>();
 
 		// Produkty dodane do koszyka
 
-		productList.add(new Product(productList.size(), "mleko", 2.8));
 		productList.add(new Product(productList.size(), "masło", 3.5));
 		productList.add(new Product(productList.size(), "chleb", 100.7));
 		productList.add(new Product(productList.size(), "ogórek", 2));
@@ -18,32 +18,49 @@ public class Basket {
 		productList.add(new Product(productList.size(), "szynka", 6.24));
 		productList.add(new Product(productList.size(), "paprykarz", 1.99));
 		productList.add(new Product(productList.size(), "olej", 5.7));
-		productList.add(new Product(productList.size(), "makaron", 4.6));
+		productList.add(new Product(productList.size(), "makaron", 4.6));	
+		
+		addProduct(productList);
+		
+		System.out.println(total(productList));}
+		
 
-		// Operacje na produktach
+	
+	static double total(List<Product> productList){ 
+		 double total = 0;
+		 int counter = 0; 
+		 for (Product Product: productList) {
+			total = total + Product.getPrice(); counter = counter + 1;}
+		 return total;
+		 }
+	
+
+	static Object addProduct(List<Product> productList) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("podaj nazwę");
+		String newName = input.next();
+		System.out.println("podaj cenę");
+		double newPrice = input.nextDouble();
+		productList.add(new Product(productList.size(), newName, newPrice));
+		input.close();
+		return productList;
+		}
+	
+	static Object removeProduct(List<Product> productList){
+		Scanner input = new Scanner(System.in);
 		double total = 0;
 		int counter = 0;
-
-		System.out.println();
-
 		for (Product Product : productList) {
 			total = total + Product.getPrice();
 			counter = counter + 1;
-			System.out.println(Product.getIndex() +" "+ Product.getName() + " " + Product.getPrice());
-		}
-			if (counter == productList.size() && total < 200) {
-				System.out.println();
-				System.out.println("Kwota całkowita wynosi" + " " + total);
-			} else if (counter == productList.size() && total > 200) {
-				System.out.println();
-				double totalDiscount = ((total - 200) * 0.1 + 200);
-				System.out.println("Kwota całkowita wynosi" + " " + total);
-				totalDiscount = totalDiscount *= 100;
-				totalDiscount = Math.round(totalDiscount);
-				totalDiscount = totalDiscount /= 100;
-
-				System.out.println("Kwota do zapłaty wynosi" + " "
-						+ totalDiscount);
-			}
-		}
+			System.out.println(Product.getIndex() + " "
+					+ Product.getName() + " " + Product.getPrice());}
+		System.out.println();
+		System.out
+				.println("Podaj numer indeksu produktu, który chcesz usunąć");
+		int removeIndex = input.nextInt();
+		productList.remove(removeIndex);
+		input.close();		
+		return productList;
 	}
+}
